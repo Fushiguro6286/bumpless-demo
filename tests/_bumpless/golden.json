@@ -1,0 +1,223 @@
+{
+ "address_invalid_zip": {
+  "category": "ValueError",
+  "raised": true
+ },
+ "address_valid": {
+  "raised": false,
+  "value": {
+   "__type__": "Address",
+   "city": "Springfield",
+   "street": "123 Main St",
+   "zip_code": "12345"
+  }
+ },
+ "service_apply_update_empty_update": {
+  "raised": false,
+  "value": {
+   "__type__": "User",
+   "address": null,
+   "age": null,
+   "created_at": "2024-01-01T12:00:00",
+   "email": "same@test.com",
+   "id": 13,
+   "name": "Same",
+   "tags": []
+  }
+ },
+ "service_apply_update_with_changes": {
+  "raised": false,
+  "value": {
+   "__type__": "User",
+   "address": null,
+   "age": null,
+   "created_at": "2024-01-01T12:00:00",
+   "email": "old@test.com",
+   "id": 12,
+   "name": "New",
+   "tags": []
+  }
+ },
+ "service_field_names": {
+  "raised": false,
+  "value": [
+   "id",
+   "name",
+   "email",
+   "age",
+   "tags",
+   "address",
+   "created_at"
+  ]
+ },
+ "service_parse_user_json_invalid": {
+  "category": "ValueError",
+  "raised": true
+ },
+ "service_parse_user_json_valid": {
+  "raised": false,
+  "value": {
+   "__type__": "User",
+   "address": null,
+   "age": null,
+   "created_at": "2024-01-01T12:00:00",
+   "email": "k@test.com",
+   "id": 11,
+   "name": "K",
+   "tags": []
+  }
+ },
+ "service_parse_users_list": {
+  "raised": false,
+  "value": [
+   {
+    "__type__": "User",
+    "address": null,
+    "age": null,
+    "created_at": "2024-01-01T12:00:00",
+    "email": "l@test.com",
+    "id": 10,
+    "name": "L",
+    "tags": []
+   }
+  ]
+ },
+ "service_roundtrip_preserves_data": {
+  "raised": false,
+  "value": {
+   "__type__": "User",
+   "address": {
+    "__type__": "Address",
+    "city": "Town",
+    "street": "1 Ave",
+    "zip_code": "54321"
+   },
+   "age": 5,
+   "created_at": "2024-01-01T12:00:00",
+   "email": "r@test.com",
+   "id": 14,
+   "name": "R",
+   "tags": [
+    "x"
+   ]
+  }
+ },
+ "service_to_json_string": {
+  "raised": false,
+  "value": {
+   "__json__": {
+    "address": null,
+    "age": null,
+    "created_at": "2024-01-01T12:00:00",
+    "email": "j@test.com",
+    "id": 9,
+    "name": "J",
+    "tags": []
+   }
+  }
+ },
+ "service_to_payload_excludes_none": {
+  "raised": false,
+  "value": {
+   "created_at": "2024-01-01T12:00:00",
+   "email": "p@test.com",
+   "id": 8,
+   "name": "P",
+   "tags": []
+  }
+ },
+ "service_user_from_row": {
+  "raised": false,
+  "value": {
+   "__type__": "User",
+   "address": null,
+   "age": null,
+   "created_at": "2024-01-01T12:00:00",
+   "email": "row@test.com",
+   "id": 7,
+   "name": "Row",
+   "tags": []
+  }
+ },
+ "user_defaults_age_none_tags_empty_address_none": {
+  "raised": false,
+  "value": {
+   "__type__": "User",
+   "address": null,
+   "age": null,
+   "created_at": "2024-01-01T12:00:00",
+   "email": "c@test.com",
+   "id": 3,
+   "name": "C",
+   "tags": []
+  }
+ },
+ "user_invalid_email_missing_at": {
+  "category": "ValueError",
+  "raised": true
+ },
+ "user_invalid_missing_created_at": {
+  "category": "ValueError",
+  "raised": true
+ },
+ "user_invalid_negative_age": {
+  "category": "ValueError",
+  "raised": true
+ },
+ "user_update_invalid_tags_not_list": {
+  "category": "ValueError",
+  "raised": true
+ },
+ "user_update_valid_all_none": {
+  "raised": false,
+  "value": {
+   "__type__": "UserUpdate",
+   "email": null,
+   "name": null,
+   "tags": null
+  }
+ },
+ "user_update_valid_partial": {
+  "raised": false,
+  "value": {
+   "__type__": "UserUpdate",
+   "email": null,
+   "name": "New Name",
+   "tags": null
+  }
+ },
+ "user_valid_full_nested": {
+  "raised": false,
+  "value": {
+   "__type__": "User",
+   "address": {
+    "__type__": "Address",
+    "city": "Springfield",
+    "street": "123 Main St",
+    "zip_code": "12345"
+   },
+   "age": 30,
+   "created_at": "2024-01-01T12:00:00",
+   "email": "bob@test.com",
+   "id": 2,
+   "name": "Bob",
+   "tags": [
+    "a",
+    "b"
+   ]
+  }
+ },
+ "user_valid_minimal_strips_and_lowercases": {
+  "raised": false,
+  "value": {
+   "__type__": "User",
+   "address": null,
+   "age": null,
+   "created_at": "2024-01-01T12:00:00",
+   "email": "a@example.com",
+   "id": 1,
+   "name": "Alice",
+   "tags": []
+  }
+ }
+}

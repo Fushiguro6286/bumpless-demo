@@ -12,32 +12,32 @@ class UserRow:
 
 
 def user_from_row(row: UserRow) -> User:
-    return User.from_orm(row)
+    return User.model_validate(row, from_attributes=True)
 
 
 def to_payload(user: User) -> Dict[str, Any]:
-    return user.dict(exclude_none=True)
+    return user.model_dump(exclude_none=True)
 
 
 def to_json(user: User) -> str:
-    return user.json()
+    return user.model_dump_json()
 
 
 def parse_users(data: List[Dict[str, Any]]) -> List[User]:
-    return [User.parse_obj(d) for d in data]
+    return [User.model_validate(d) for d in data]
 
 
 def parse_user_json(raw: str) -> User:
-    return User.parse_raw(raw)
+    return User.model_validate_json(raw)
 
 
 def apply_update(user: User, update: UserUpdate) -> User:
-    return user.copy(update=update.dict(exclude_unset=True))
+    return user.model_copy(update=update.model_dump(exclude_unset=True))
 
 
 def field_names() -> List[str]:
-    return list(User.__fields__.keys())
+    return list(User.model_fields.keys())
 
 
 def roundtrip(user: User) -> User:
-    return User.parse_obj(json.loads(user.json()))
+    return User.model_validate(json.loads(user.model_dump_json()))

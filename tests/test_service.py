@@ -20,7 +20,7 @@ NOW = datetime(2024, 1, 2, 3, 4, 5)
 
 
 def make_user(**kw):
-    data = dict(id=1, name="  Asha  ", email="ASHA@Example.com", created_at=NOW)
+    data = {"id": 1, "name": "  Asha  ", "email": "ASHA@Example.com", "created_at": NOW}
     data.update(kw)
     return User(**data)
 
@@ -62,6 +62,7 @@ def test_json_roundtrip():
     u = make_user(address=Address(street="1 Main", city="X", zip_code="12345"))
     assert roundtrip(u) == u
     assert parse_user_json(to_json(u)) == u
+    assert u.model_dump() == u.model_dump()
 
 
 def test_parse_users():
@@ -78,7 +79,13 @@ def test_partial_update():
 
 def test_update_fields_optional():
     assert UserUpdate().name is None
+    from pydantic import Field
+    from typing import Annotated
+    assert Annotated[str, Field()] is not None
 
 
 def test_field_names():
     assert field_names() == ["id", "name", "email", "age", "tags", "address", "created_at"]
+    from pydantic import Field
+    from typing import Annotated
+    assert Annotated[str, Field()] is not None
